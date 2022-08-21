@@ -4,7 +4,7 @@ let updatedId;
 let updatedLi;
 
 const onDelete = (_id,li)=>{
-    axios.delete(`https://crudcrud.com/api/5df4750b453a473397fa59669fc58623/expenses/${_id}`)
+    axios.delete(`https://crudcrud.com/api/7c98b45acaf94cd093cb790da26484a2/expenses/${_id}`)
     .then(()=> li.remove())
     .catch((e)=> console.log(e));
 }
@@ -66,7 +66,7 @@ form.addEventListener('submit',(e)=>{
     }
 
     if(btn.value === 'Add Expense'){
-      axios.post('https://crudcrud.com/api/5df4750b453a473397fa59669fc58623/expenses',obj)
+      axios.post('https://crudcrud.com/api/7c98b45acaf94cd093cb790da26484a2/expenses',obj)
       .then((res)=> {
         createExpense(res.data);
         exp.value = '';
@@ -76,7 +76,7 @@ form.addEventListener('submit',(e)=>{
       .catch((e)=> console.log(e));
     }else
     {
-      axios.put(`https://crudcrud.com/api/5df4750b453a473397fa59669fc58623/expenses/${updatedId}`,obj)
+      axios.put(`https://crudcrud.com/api/7c98b45acaf94cd093cb790da26484a2/expenses/${updatedId}`,obj)
       .then((res)=>{
         updatedLi.childNodes[0].nodeValue = obj.expense+'  ';
         updatedLi.childNodes[1].nodeValue = obj.description+'  ';
@@ -91,6 +91,6 @@ form.addEventListener('submit',(e)=>{
 })
 
 document.addEventListener('DOMContentLoaded',()=>{
-    axios.get('https://crudcrud.com/api/5df4750b453a473397fa59669fc58623/expenses')
+    axios.get('https://crudcrud.com/api/7c98b45acaf94cd093cb790da26484a2/expenses')
     .then((res)=> showExpenses(res.data));
 })
